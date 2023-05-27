@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+  <style>
+    /* Slider container */
+    .slider-container {
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Slider images */
+    .slider-images {
+      display: flex;
+      width: fit-content;
+      animation: slide 10s infinite linear;
+    }
+
+    /* Individual slide images */
+    .slider-image {
+      width: 600px;
+    }
+
+    /* Animation keyframes */
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider-images">
+      <div class="slider-image">
+        <img src="Images/images_1.jpg" alt="Image 1">
+      </div>
+      <div class="slider-image">
+        <img src="Images/images_2.jpg" alt="Image 2">
+      </div>
+      <div class="slider-image">
+        <img src="Images/images_3.jpg" alt="Image 3">
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>

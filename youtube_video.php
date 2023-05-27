@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Video Player</title>
+  <style>
+    #player {
+      width: 560px;
+      height: 315px;
+    }
+  </style>
+</head>
+<body>
+  <div id="player"></div>
+  <button onclick="playNextVideo()">Next</button>
+
+  <script>
+    // Retrieve video codes from PHP array
+    var videoCodes = ["g59jFVCjsZ4","EdftT8GMU1U","-DkUPoe0HCw","Sk0DsJuJ_y8"];
+
+    // Initialize video index
+    var videoIndex = 0;
+
+    // Play the first video
+    playVideo(videoIndex);
+
+    // Function to play the video
+    function playVideo(index) {
+      // Select the video code based on the index
+      var videoCode = videoCodes[index];
+
+      // Create an iframe element with the video code
+      var playerDiv = document.getElementById("player");
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube.com/embed/" + videoCode;
+      iframe.width = "100%";
+      iframe.height = "100%";
+      iframe.frameborder = "0";
+      iframe.allowfullscreen = true;
+
+      // Clear previous video
+      playerDiv.innerHTML = "";
+
+      // Append the iframe to the player div
+      playerDiv.appendChild(iframe);
+    }
+
+    // Function to play the next video
+    function playNextVideo() {
+      videoIndex++;
+      if (videoIndex >= videoCodes.length) {
+        videoIndex = 0;
+      }
+      playVideo(videoIndex);
+    }
+  </script>
+</body>
+</html>
